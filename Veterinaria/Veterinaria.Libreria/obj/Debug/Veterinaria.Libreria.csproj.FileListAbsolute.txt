@@ -4,3 +4,9 @@ C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\Veterinaria\Veterinaria.
 C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\Veterinaria\Veterinaria.Libreria\bin\Debug\Veterinaria.Libreria.pdb
 C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\Veterinaria\Veterinaria.Libreria\obj\Debug\Veterinaria.Libreria.dll
 C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\Veterinaria\Veterinaria.Libreria\obj\Debug\Veterinaria.Libreria.pdb
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.Libreria\bin\Debug\Veterinaria.Libreria.dll
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.Libreria\bin\Debug\Veterinaria.Libreria.pdb
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.Libreria\obj\Debug\Veterinaria.Libreria.csprojAssemblyReference.cache
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.Libreria\obj\Debug\Veterinaria.Libreria.csproj.CoreCompileInputs.cache
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.Libreria\obj\Debug\Veterinaria.Libreria.dll
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.Libreria\obj\Debug\Veterinaria.Libreria.pdb
