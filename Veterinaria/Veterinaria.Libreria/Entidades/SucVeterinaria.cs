@@ -16,6 +16,9 @@ namespace Veterinaria.Libreria.Entidades
         List<Cliente> _clientes;
         List<Profesional> _profesionales;
 
+        public string Nombre { get => _nombre; }
+        public string Domicilio { get => _domicilio; }
+
         public SucVeterinaria(string nombre, string domicilio, string telefono, string encargado)
         {
             this._nombre = nombre;

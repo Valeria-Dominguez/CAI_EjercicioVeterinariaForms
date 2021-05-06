@@ -39,6 +39,9 @@ namespace Veterinaria.GUI
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAgregarPaciente = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
+            this.txtCodigoCliente = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -116,7 +119,7 @@ namespace Veterinaria.GUI
             // 
             // btnAgregarPaciente
             // 
-            this.btnAgregarPaciente.Location = new System.Drawing.Point(40, 249);
+            this.btnAgregarPaciente.Location = new System.Drawing.Point(258, 303);
             this.btnAgregarPaciente.Name = "btnAgregarPaciente";
             this.btnAgregarPaciente.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarPaciente.TabIndex = 9;
@@ -124,11 +127,40 @@ namespace Veterinaria.GUI
             this.btnAgregarPaciente.UseVisualStyleBackColor = true;
             this.btnAgregarPaciente.Click += new System.EventHandler(this.btnAgregarPaciente_Click);
             // 
-            // Form1
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(40, 325);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(75, 23);
+            this.btnVolver.TabIndex = 10;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
+            // txtCodigoCliente
+            // 
+            this.txtCodigoCliente.Location = new System.Drawing.Point(40, 268);
+            this.txtCodigoCliente.Name = "txtCodigoCliente";
+            this.txtCodigoCliente.Size = new System.Drawing.Size(293, 20);
+            this.txtCodigoCliente.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(37, 252);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Codigo cliente";
+            // 
+            // FormAltaPaciente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtCodigoCliente);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnAgregarPaciente);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtPesoPaciente);
@@ -139,8 +171,9 @@ namespace Veterinaria.GUI
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtIdPaciente);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "FormAltaPaciente";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FormAltaPaciente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,5 +191,8 @@ namespace Veterinaria.GUI
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAgregarPaciente;
+        private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.TextBox txtCodigoCliente;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -19,16 +19,10 @@ namespace Veterinaria.GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            SucVeterinaria sucursal1 = new SucVeterinaria("Sucursal1", "Domicilio Sucursal1", "Telefono Sucursal1", "Encargado Sucursal1");
-
             
-            FormAltaCliente formularioAltaCliente = new FormAltaCliente();
-            FormAltaPaciente formularioAltaPaciente = new FormAltaPaciente();
-            FormAltaProfesional formularioAltaProfesional = new FormAltaProfesional();
-            FormAltaVisita formularioAltaVisita = new FormAltaVisita();
+            FormMenu frmMenu = new FormMenu();
 
-            Application.Run(formularioAltaVisita);
+            Application.Run(frmMenu);
         }
     }
 }

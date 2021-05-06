@@ -30,3 +30,4 @@ C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinaria
 C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.GUI\obj\Debug\Veterinaria.GUI.csproj.CopyComplete
 C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.GUI\obj\Debug\Veterinaria.GUI.exe
 C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.GUI\obj\Debug\Veterinaria.GUI.pdb
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.GUI\obj\Debug\Veterinaria.GUI.FormMenu.resources

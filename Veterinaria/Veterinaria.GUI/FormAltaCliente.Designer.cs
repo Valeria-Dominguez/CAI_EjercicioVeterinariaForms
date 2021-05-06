@@ -41,6 +41,7 @@ namespace Veterinaria.GUI
             this.txtEmailCliente = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnAgregarCliente = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtIdCliente
@@ -134,7 +135,7 @@ namespace Veterinaria.GUI
             // 
             // btnAgregarCliente
             // 
-            this.btnAgregarCliente.Location = new System.Drawing.Point(63, 247);
+            this.btnAgregarCliente.Location = new System.Drawing.Point(332, 246);
             this.btnAgregarCliente.Name = "btnAgregarCliente";
             this.btnAgregarCliente.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarCliente.TabIndex = 11;
@@ -142,11 +143,22 @@ namespace Veterinaria.GUI
             this.btnAgregarCliente.UseVisualStyleBackColor = true;
             this.btnAgregarCliente.Click += new System.EventHandler(this.btnAgregarCliente_Click);
             // 
-            // Form1
+            // btnVolver
+            // 
+            this.btnVolver.Location = new System.Drawing.Point(63, 283);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(75, 23);
+            this.btnVolver.TabIndex = 12;
+            this.btnVolver.Text = "Volver";
+            this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
+            // FormAltaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnAgregarCliente);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -159,8 +171,9 @@ namespace Veterinaria.GUI
             this.Controls.Add(this.txtNombreCliente);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtIdCliente);
-            this.Name = "Form1";
+            this.Name = "FormAltaCliente";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FormAltaCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,6 +193,7 @@ namespace Veterinaria.GUI
         private System.Windows.Forms.TextBox txtEmailCliente;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnAgregarCliente;
+        private System.Windows.Forms.Button btnVolver;
     }
 }
 

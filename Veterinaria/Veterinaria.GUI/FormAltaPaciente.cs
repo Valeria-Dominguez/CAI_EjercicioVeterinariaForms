@@ -14,8 +14,13 @@ namespace Veterinaria.GUI
 {
     public partial class FormAltaPaciente : Form
     {
-        public FormAltaPaciente()
+        private Form _menu;
+        private SucVeterinaria _sucVeterinaria;
+
+        public FormAltaPaciente(Form form, SucVeterinaria sucVeterinaria)
         {
+            _menu = form;
+            _sucVeterinaria = sucVeterinaria;
             InitializeComponent();
         }
 
@@ -26,6 +31,7 @@ namespace Veterinaria.GUI
             {
                 Validar();
                 double peso = Validaciones.Validaciones.ValidarDouble(txtPesoPaciente.Text);
+                //validar cliente 
                 paciente = new Paciente(txtIdPaciente.Text, txtNombrePaciente.Text, txtFechaNacimPaciente.Text, peso);
                 Limpiar();
 
@@ -55,6 +61,16 @@ namespace Veterinaria.GUI
             txtPesoPaciente.Text = string.Empty;
         }
 
+        private void FormAltaPaciente_Load(object sender, EventArgs e)
+        {
+            //No uso limpiar y me limpia igual los text box, por qué?
+            //Limpiar();
+        }
 
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            _menu.Show();
+            this.Hide();
+        }
     }
 }
