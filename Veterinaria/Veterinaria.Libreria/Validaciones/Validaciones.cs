@@ -21,7 +21,19 @@ namespace Validaciones
             }
             return valor;
         }
-
+        public static int ValidarInt (string numero)
+        {
+            int valor;
+            if (!int.TryParse(numero, out valor))
+            {
+                valor = int.MaxValue;
+            }
+            if (valor == int.MaxValue)
+            {
+                throw new Exception("Debe ingresar un número");
+            }
+            return valor;
+        }
         public static void ValidarOperador(string str)
         {
             if (str != "+" && str != "-" && str != "*" && str != "/")

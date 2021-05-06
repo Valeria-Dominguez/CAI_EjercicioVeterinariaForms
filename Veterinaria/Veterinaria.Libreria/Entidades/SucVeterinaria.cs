@@ -92,16 +92,23 @@ namespace Veterinaria.Libreria.Entidades
                 if (cliente.Id == idCliente)
                 {
                     clienteBusc = cliente;
-                    cliente.GuardarPaciente(paciente);
+                }
+                foreach (Paciente pacient in cliente.Mascotas)
+                {
+                    if (pacient.IdPaciente == paciente.IdPaciente)
+                    {
+                        throw new PacienteExistenteException();
+                    }
                 }
             }
+            clienteBusc.GuardarPaciente(paciente);
             if (clienteBusc == null)
             {
                 throw new ClienteInexistenteException();
             }
         }
 
-        public string EliminarPaciente(string idPaciente)
+        public void EliminarPaciente(string idPaciente)
         {
             Paciente pacienteBusc = null;
             Cliente clienteBusc = null;
@@ -123,8 +130,6 @@ namespace Veterinaria.Libreria.Entidades
             }
 
             clienteBusc.EliminarPaciente(pacienteBusc);
-            
-            return "Paciente eliminado\n";
         }
         
         public string ListarClientes()
@@ -167,7 +172,7 @@ namespace Veterinaria.Libreria.Entidades
             GuardarVisita(idPaciente, visita);
         }
 
-        public string GuardarVisita(string idPaciente, Visita visita)
+        public void GuardarVisita(string idPaciente, Visita visita)
         {
             Paciente pacienteBusc = null;
 
@@ -187,8 +192,6 @@ namespace Veterinaria.Libreria.Entidades
             }
 
             pacienteBusc.GuardarVisita(visita);
-
-            return "Visita agregada\n";
         }
     }
 }

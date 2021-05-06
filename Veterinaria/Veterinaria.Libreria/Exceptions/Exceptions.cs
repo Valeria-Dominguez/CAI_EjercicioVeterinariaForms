@@ -53,4 +53,15 @@ namespace Veterinaria.Libreria.Exceptions
         }
     }
 
+    public class PacienteExistenteException : Exception
+    {
+        public PacienteExistenteException(string message) : base(message)
+        {
+
+        }
+        public PacienteExistenteException() : base("El paciente ya existe\n")
+        {
+
+        }
+    }
 }

@@ -66,6 +66,7 @@ namespace Veterinaria.GUI
             this.btnBajaPaciente.TabIndex = 5;
             this.btnBajaPaciente.Text = "Baja paciente";
             this.btnBajaPaciente.UseVisualStyleBackColor = true;
+            this.btnBajaPaciente.Click += new System.EventHandler(this.btnBajaPaciente_Click);
             // 
             // btnAgregarVisita
             // 

@@ -35,6 +35,10 @@ namespace Veterinaria.GUI
                 MessageBox.Show($"Cliente agregado:\n {cliente.ListarPersona()}");
                 Limpiar();
             }
+            catch (ClienteExistenteException clienteExistExcep)
+            {
+                MessageBox.Show(clienteExistExcep.Message);
+            }
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);

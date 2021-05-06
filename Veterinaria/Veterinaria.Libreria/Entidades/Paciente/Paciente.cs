@@ -26,13 +26,13 @@ namespace Veterinaria.Libreria.Entidades
             this._visitas = new List<Visita>();
         }
 
+        public string ListarDatosPaciente()
+        {
+            return ($"ID: {this._idPaciente}\nNombre: {this._nombre}\nFecha de nacimiento: {this._fechaNacimiento}\nPeso: {this._peso}\n").ToString();
+        }
+
         public string ListarHistoria()
         {
-            string datosPaciente = "ID: " + _idPaciente
-                + "\nNombre: " + _nombre
-                + "\nFecha de nacimiento: " + _fechaNacimiento
-                + "\n";
-
             string historialVisitas = "";
             if (this._visitas.Count==0)
             {
@@ -46,13 +46,12 @@ namespace Veterinaria.Libreria.Entidades
                     historialVisitas = historialVisitas + visita.ListarVisita() + "\n\n";
                 }
             }
-            return datosPaciente + historialVisitas;
+            return ListarDatosPaciente() + historialVisitas;
         }
 
         public void GuardarVisita(Visita visita)
         {
             this._visitas.Add(visita);
         }
-
     }
 }

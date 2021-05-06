@@ -26,7 +26,7 @@ namespace Veterinaria.Libreria.Entidades
         }
         public string ListarPersona()
         {
-            return $"Id: {_id}\n Nombre: {_nombre}\n Domicilio: {_domicilio}\n Teléfono: {_numeroTel}\n Email: {_email}\n\n".ToString();
+            return ($"Id: {this._id}\nNombre: {this._nombre}\nDomicilio: {this._domicilio}\nTeléfono: {this._numeroTel}\nEmail: {this._email}\n\n").ToString();
         }
     }
 }

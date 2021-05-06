@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Validaciones;
 using Veterinaria.Libreria.Entidades;
+using Veterinaria.Libreria.Exceptions;
 
 namespace Veterinaria.GUI
 {
@@ -31,10 +32,19 @@ namespace Veterinaria.GUI
             {
                 Validar();
                 double peso = Validaciones.Validaciones.ValidarDouble(txtPesoPaciente.Text);
-                //validar cliente 
                 paciente = new Paciente(txtIdPaciente.Text, txtNombrePaciente.Text, txtFechaNacimPaciente.Text, peso);
+                _sucVeterinaria.GuardarPaciente(txtIdCliente.Text, paciente);
+                MessageBox.Show($"Paciente agregado:\n {paciente.ListarDatosPaciente()}");
                 Limpiar();
 
+            }
+            catch (ClienteInexistenteException clienteInexistExcep)
+            {
+                MessageBox.Show(clienteInexistExcep.Message);
+            }
+            catch (PacienteExistenteException pacienteExistExcep)
+            {
+                MessageBox.Show(pacienteExistExcep.Message);
             }
             catch (Exception excepcion)
             {
@@ -47,7 +57,8 @@ namespace Veterinaria.GUI
             if(
                 txtIdPaciente.Text==string.Empty || 
                 txtNombrePaciente.Text == string.Empty || 
-                txtFechaNacimPaciente.Text == string.Empty
+                txtFechaNacimPaciente.Text == string.Empty ||
+                txtIdCliente.Text == string.Empty
                 )
             {
                 throw new Exception("Ningún campo puede estar vacío");
@@ -59,6 +70,7 @@ namespace Veterinaria.GUI
             txtNombrePaciente.Text = string.Empty;
             txtFechaNacimPaciente.Text = string.Empty;
             txtPesoPaciente.Text = string.Empty;
+            txtIdCliente.Text = string.Empty;
         }
 
         private void FormAltaPaciente_Load(object sender, EventArgs e)

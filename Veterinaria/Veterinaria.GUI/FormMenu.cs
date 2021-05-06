@@ -43,5 +43,12 @@ namespace Veterinaria.GUI
             frmAltaPaciente.Show();
             this.Hide();
         }
+
+        private void btnBajaPaciente_Click(object sender, EventArgs e)
+        {
+            FormBajaPaciente frmBajaPaciente = new FormBajaPaciente(this, sucursal1);
+            frmBajaPaciente.Show();
+            this.Hide();
+        }
     }
 }
