@@ -18,13 +18,19 @@ namespace Veterinaria.Libreria.Entidades
 
         public override bool Equals(object obj)
         {
-            bool igual = false;
-            Cliente cliente = (Cliente)obj;
-            if (cliente.Id == this.Id)
+            if (obj == null)
             {
-                igual = true;
+                return false;
             }
-            return igual;
+            else if (!(obj is Cliente))
+            {
+                return false;
+            }
+            else
+            {
+                Cliente cliente = (Cliente)obj;
+                return cliente.Id == this.Id;
+            }
         }
 
         public void GuardarPaciente(Paciente paciente)
@@ -40,7 +46,7 @@ namespace Veterinaria.Libreria.Entidades
         internal string ListarClienteYMascotas()
         {
             string datosCliente = "";
-            datosCliente = $"{this.ListarPersona()} Mascotas:\n ";
+            datosCliente = $"{this.ToString()} Mascotas:\n ";
 
             string mascotas = "";
             if (this._mascotas.Count==0)

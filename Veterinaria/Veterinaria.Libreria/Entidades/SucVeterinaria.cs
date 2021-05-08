@@ -18,6 +18,7 @@ namespace Veterinaria.Libreria.Entidades
 
         public string Nombre { get => _nombre; }
         public string Domicilio { get => _domicilio; }
+        public List<Cliente> Clientes { get => _clientes; set => _clientes = value; }
 
         public SucVeterinaria(string nombre, string domicilio, string telefono, string encargado)
         {
@@ -45,6 +46,25 @@ namespace Veterinaria.Libreria.Entidades
                 }
             }
             this._clientes.Add(clienteAgre);
+        }
+
+        public void ModificarCliente(Cliente clienteModificado)
+        {
+            Cliente clienteBuscado = null;
+            foreach (Cliente cliente in this._clientes)
+            {
+                if (cliente.Equals(clienteModificado))
+                {
+                    clienteBuscado = cliente;
+                }
+            }
+            if (clienteBuscado == null) { throw new ClienteInexistenteException(); }
+
+            clienteBuscado.Id = clienteModificado.Id;
+            clienteBuscado.Nombre = clienteModificado.Nombre;
+            clienteBuscado.Domicilio = clienteModificado.Domicilio;
+            clienteBuscado.NumeroTel = clienteModificado.NumeroTel;
+            clienteBuscado.Email = clienteModificado.Email;
         }
 
         public void GuardarProfesional(string idProfesional, string nombre, string domicilio, string numeroTel, string email)
@@ -131,7 +151,34 @@ namespace Veterinaria.Libreria.Entidades
 
             clienteBusc.EliminarPaciente(pacienteBusc);
         }
-        
+
+        public void EliminarCliente(string idCliente)
+        {
+            Cliente clienteBusc = null;
+
+            foreach (Cliente cliente in this._clientes)
+            {
+                if (cliente.Id == clienteBusc.Id)
+                {
+                    clienteBusc = cliente;
+                }
+            }
+            if (clienteBusc == null)
+            {
+                throw new ClienteInexistenteException("No puede eliminarse, el cliente no existe\n");
+            }
+            EliminarCliente(clienteBusc);
+        }
+
+        public void EliminarCliente(Cliente cliente)
+        {
+            if (cliente.Mascotas.Count != 0)
+            {
+                throw new PacientesIngresadosException("No puede eliminarse, existen mascotas ingresadas");
+            }
+            this._clientes.Remove(cliente);
+        }
+
         public string ListarClientes()
         {
             string valor = "";
@@ -160,7 +207,7 @@ namespace Veterinaria.Libreria.Entidades
             {
                 foreach (Profesional profesional in this._profesionales)
                 {
-                    valor = valor + profesional.ListarPersona();
+                    valor = valor + profesional.ToString();
                 }
             }
             return valor;

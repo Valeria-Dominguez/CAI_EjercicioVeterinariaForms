@@ -24,10 +24,10 @@ namespace Veterinaria.GUI
             this.lblSucVet.Text = $"{sucursal1.Nombre} - {sucursal1.Domicilio}";
         }
 
-        private void btnAltaCliente_Click(object sender, EventArgs e)
+        private void btnAByM_Click(object sender, EventArgs e)
         {
-            FormAltaCliente frmAltaCliente = new FormAltaCliente(this, sucursal1);
-            frmAltaCliente.Show();
+            FormAByM frmAByM = new FormAByM(this, sucursal1);
+            frmAByM.Show();
             this.Hide();
         }
 
@@ -50,5 +50,6 @@ namespace Veterinaria.GUI
             frmBajaPaciente.Show();
             this.Hide();
         }
+
     }
 }

@@ -17,6 +17,17 @@ namespace Veterinaria.Libreria.Exceptions
 
         }
     }
+    public class PacientesIngresadosException : Exception
+    {
+        public PacientesIngresadosException(string message) : base(message)
+        {
+
+        }
+        public PacientesIngresadosException() : base("Hay pacientes ingresados\n")
+        {
+
+        }
+    }
 
     public class PacienteInexistenteException : Exception
     {

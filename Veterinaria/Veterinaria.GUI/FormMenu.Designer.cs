@@ -44,9 +44,9 @@ namespace Veterinaria.GUI
             this.btnAltaCliente.Name = "btnAltaCliente";
             this.btnAltaCliente.Size = new System.Drawing.Size(116, 23);
             this.btnAltaCliente.TabIndex = 1;
-            this.btnAltaCliente.Text = "Alta cliente";
+            this.btnAltaCliente.Text = "AByM Clientes";
             this.btnAltaCliente.UseVisualStyleBackColor = true;
-            this.btnAltaCliente.Click += new System.EventHandler(this.btnAltaCliente_Click);
+            this.btnAltaCliente.Click += new System.EventHandler(this.btnAByM_Click);
             // 
             // btnAltaPaciente
             // 

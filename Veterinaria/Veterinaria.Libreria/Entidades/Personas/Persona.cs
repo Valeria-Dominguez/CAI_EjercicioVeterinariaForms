@@ -14,7 +14,11 @@ namespace Veterinaria.Libreria.Entidades
         string _numeroTel;
         string _email;
 
-        public string Id { get => _id; }
+        public string Id { get => _id; set => _id = value; }
+        public string Nombre { get => _nombre; set => _nombre = value; }
+        public string Domicilio { get => _domicilio; set => _domicilio = value; }
+        public string NumeroTel { get => _numeroTel; set => _numeroTel = value; }
+        public string Email { get => _email; set => _email = value; }
 
         public Persona(string id, string nombre, string domicilio, string numeroTel, string email)
         {
@@ -24,9 +28,9 @@ namespace Veterinaria.Libreria.Entidades
             _email = email;
             _numeroTel = numeroTel;
         }
-        public string ListarPersona()
+        public override string ToString()
         {
-            return ($"Id: {this._id}\nNombre: {this._nombre}\nDomicilio: {this._domicilio}\nTeléfono: {this._numeroTel}\nEmail: {this._email}\n\n").ToString();
+            return $" Id: {this._id}\n Nombre: {this._nombre}\n Domicilio: {this._domicilio}\n Teléfono: {this._numeroTel}\n Email: {this._email}\n\n";
         }
     }
 }
