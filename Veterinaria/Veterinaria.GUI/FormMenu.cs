@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Veterinaria.Libreria.Entidades;
 
@@ -24,10 +17,10 @@ namespace Veterinaria.GUI
             this.lblSucVet.Text = $"{sucursal1.Nombre} - {sucursal1.Domicilio}";
         }
 
-        private void btnAByM_Click(object sender, EventArgs e)
+        private void btnAByMClientes_Click(object sender, EventArgs e)
         {
-            FormAByM frmAByM = new FormAByM(this, sucursal1);
-            frmAByM.Show();
+            FormAByMClientes frmAByMClientes = new FormAByMClientes(this, sucursal1);
+            frmAByMClientes.Show();
             this.Hide();
         }
 
@@ -37,19 +30,24 @@ namespace Veterinaria.GUI
             MessageBox.Show(sucursal1.ListarClientes());
         }
 
-        private void btnAltaPaciente_Click(object sender, EventArgs e)
+        private void btnAByMPacientes_Click(object sender, EventArgs e)
         {
-            FormAltaPaciente frmAltaPaciente = new FormAltaPaciente(this, sucursal1);
-            frmAltaPaciente.Show();
+            FormPedirCliente frmPedirCliente = new FormPedirCliente(this, sucursal1);
+            frmPedirCliente.Show();
             this.Hide();
         }
 
-        private void btnBajaPaciente_Click(object sender, EventArgs e)
+        private void btnListarHistoria_Click(object sender, EventArgs e)
         {
-            FormBajaPaciente frmBajaPaciente = new FormBajaPaciente(this, sucursal1);
-            frmBajaPaciente.Show();
+            FormPedirPaciente frmPedirPaciente = new FormPedirPaciente(this, sucursal1);
+            frmPedirPaciente.Show();
             this.Hide();
-        }
 
+            //Por qué no funciona?
+            if (frmPedirPaciente.PacienteEncontrado != null)
+            {
+                MessageBox.Show(frmPedirPaciente.PacienteEncontrado.ListarHistoria());
+            }
+        }
     }
 }

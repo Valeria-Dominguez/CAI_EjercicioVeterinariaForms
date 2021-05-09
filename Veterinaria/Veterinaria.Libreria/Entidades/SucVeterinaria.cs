@@ -240,5 +240,42 @@ namespace Veterinaria.Libreria.Entidades
 
             pacienteBusc.GuardarVisita(visita);
         }
+
+        public Cliente BuscarCliente(string idCliente)
+        {
+            Cliente clienteEncontrado = null;
+            foreach (Cliente cliente in this._clientes)
+            {
+                if (cliente.Id==idCliente)
+                {
+                    clienteEncontrado = cliente;
+                }
+            }
+            if (clienteEncontrado == null)
+            {
+                throw new ClienteInexistenteException("El cliente no existe\n");
+            }
+            return clienteEncontrado;
+        }
+
+        public Paciente BuscarPaciente(string idPaciente)
+        {
+            Paciente pacienteEncontrado = null;
+            foreach (Cliente cliente in this._clientes)
+            {
+                foreach (Paciente paciente in cliente.Mascotas)
+                {
+                    if (paciente.IdPaciente == idPaciente)
+                    {
+                        pacienteEncontrado = paciente;
+                    }
+                }
+            }
+            if (pacienteEncontrado == null)
+            {
+                throw new PacienteInexistenteException("El paciente no existe\n");
+            }
+            return pacienteEncontrado;
+        }
     }
 }

@@ -14,8 +14,10 @@ namespace Veterinaria.Libreria.Entidades
         double _peso;
         List<Visita> _visitas;
 
-        public string IdPaciente { get => _idPaciente; }
-        public string Nombre { get => _nombre; }
+        public string IdPaciente { get => _idPaciente; set => _idPaciente = value; }
+        public string Nombre { get => _nombre; set => _nombre = value; }
+        public string FechaNacimiento { get => _fechaNacimiento; set => _fechaNacimiento = value; }
+        public double Peso { get => _peso; set => _peso = value; }
 
         public Paciente(string idPaciente, string nombre, string fechaNacimiento, double peso)
         {
@@ -26,9 +28,9 @@ namespace Veterinaria.Libreria.Entidades
             this._visitas = new List<Visita>();
         }
 
-        public string ListarDatosPaciente()
+        public override string ToString()
         {
-            return ($"ID: {this._idPaciente}\nNombre: {this._nombre}\nFecha de nacimiento: {this._fechaNacimiento}\nPeso: {this._peso}\n").ToString();
+            return $"ID: {this._idPaciente}\nNombre: {this._nombre}\nFecha de nacimiento: {this._fechaNacimiento}\nPeso: {this._peso}\n";
         }
 
         public string ListarHistoria()
@@ -46,7 +48,7 @@ namespace Veterinaria.Libreria.Entidades
                     historialVisitas = historialVisitas + visita.ListarVisita() + "\n\n";
                 }
             }
-            return ListarDatosPaciente() + historialVisitas;
+            return ToString() + historialVisitas;
         }
 
         public void GuardarVisita(Visita visita)

@@ -46,23 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarVisita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarVisita.Designer.cs">
+      <DependentUpon>AgregarVisita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPedirPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPedirPaciente.Designer.cs">
+      <DependentUpon>FormPedirPaciente.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormConfirmacion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormConfirmacion.Designer.cs">
       <DependentUpon>FormConfirmacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormBajaPaciente.cs">
+    <Compile Include="FormPedirCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormBajaPaciente.Designer.cs">
-      <DependentUpon>FormBajaPaciente.cs</DependentUpon>
+    <Compile Include="FormPedirCliente.Designer.cs">
+      <DependentUpon>FormPedirCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAByM.cs">
+    <Compile Include="FormAByMClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAByM.Designer.cs">
-      <DependentUpon>FormAByM.cs</DependentUpon>
+    <Compile Include="FormAByMClientes.Designer.cs">
+      <DependentUpon>FormAByMClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
@@ -76,11 +88,11 @@
     <Compile Include="FormAltaProfesional.Designer.cs">
       <DependentUpon>FormAltaProfesional.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAltaPaciente.cs">
+    <Compile Include="FormAByMPacientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAltaPaciente.Designer.cs">
-      <DependentUpon>FormAltaPaciente.cs</DependentUpon>
+    <Compile Include="FormAByMPacientes.Designer.cs">
+      <DependentUpon>FormAByMPacientes.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAltaVisita.cs">
       <SubType>Form</SubType>
@@ -90,11 +102,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AgregarVisita.resx">
+      <DependentUpon>AgregarVisita.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormConfirmacion.resx">
       <DependentUpon>FormConfirmacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAltaPaciente.resx">
-      <DependentUpon>FormAltaPaciente.cs</DependentUpon>
+    <EmbeddedResource Include="FormAByMPacientes.resx">
+      <DependentUpon>FormAByMPacientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAltaProfesional.resx">
       <DependentUpon>FormAltaProfesional.cs</DependentUpon>
@@ -102,14 +117,17 @@
     <EmbeddedResource Include="FormAltaVisita.resx">
       <DependentUpon>FormAltaVisita.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormBajaPaciente.resx">
-      <DependentUpon>FormBajaPaciente.cs</DependentUpon>
+    <EmbeddedResource Include="FormPedirCliente.resx">
+      <DependentUpon>FormPedirCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAByM.resx">
-      <DependentUpon>FormAByM.cs</DependentUpon>
+    <EmbeddedResource Include="FormAByMClientes.resx">
+      <DependentUpon>FormAByMClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPedirPaciente.resx">
+      <DependentUpon>FormPedirPaciente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

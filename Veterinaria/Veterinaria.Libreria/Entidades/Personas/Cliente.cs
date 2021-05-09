@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Veterinaria.Libreria.Exceptions;
 
 namespace Veterinaria.Libreria.Entidades
 {
@@ -14,7 +15,7 @@ namespace Veterinaria.Libreria.Entidades
         {
             this._mascotas = new List<Paciente>();
         }
-        internal List<Paciente> Mascotas { get => _mascotas; }
+        public List<Paciente> Mascotas { get => _mascotas; set => _mascotas = value; }
 
         public override bool Equals(object obj)
         {
@@ -70,6 +71,25 @@ namespace Veterinaria.Libreria.Entidades
                 valor = valor + $"{mascota.Nombre}\n";
             }
             return valor;
+        }
+
+        public void ModificarPaciente(Paciente pacienteModificado)
+        {
+            Paciente pacienteBuscado = null;
+            foreach (Paciente paciente in this._mascotas)
+            {
+                if (paciente.IdPaciente==pacienteModificado.IdPaciente)
+                {
+                    pacienteBuscado = paciente;
+                }
+            }
+            if (pacienteBuscado == null) { throw new PacienteInexistenteException(); }
+
+
+            pacienteBuscado.IdPaciente = pacienteModificado.IdPaciente;
+            pacienteBuscado.Nombre = pacienteModificado.Nombre;
+            pacienteBuscado.FechaNacimiento = pacienteModificado.FechaNacimiento;
+            pacienteBuscado.Peso = pacienteModificado.Peso;
         }
     }
 }

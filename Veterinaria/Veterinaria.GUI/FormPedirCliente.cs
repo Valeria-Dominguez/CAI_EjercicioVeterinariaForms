@@ -12,29 +12,31 @@ using Veterinaria.Libreria.Exceptions;
 
 namespace Veterinaria.GUI
 {
-    public partial class FormBajaPaciente : Form
+    public partial class FormPedirCliente : Form
     {
         private Form _menu;
         private SucVeterinaria _sucVeterinaria;
-        public FormBajaPaciente(Form form, SucVeterinaria sucVeterinaria)
+        public FormPedirCliente(Form form, SucVeterinaria sucVeterinaria)
         {
             _menu = form;
             _sucVeterinaria = sucVeterinaria;
             InitializeComponent();
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
             try
             {
-                if (txtIdPaciente.Text == string.Empty) { throw new Exception("El campo no puede estar vacío"); }
-                _sucVeterinaria.EliminarPaciente(txtIdPaciente.Text);
-                MessageBox.Show($"Paciente eliminado");
+                if (txtIdCliente.Text == string.Empty) { throw new Exception("El campo no puede estar vacío"); }
+                Cliente cliente =_sucVeterinaria.BuscarCliente(txtIdCliente.Text);
+                FormAByMPacientes frmAByMPacientes = new FormAByMPacientes(this,_sucVeterinaria, cliente);
+                frmAByMPacientes.Show();
+                this.Hide();
                 Limpiar();
             }
-            catch (PacienteInexistenteException pacienteInexistExcep)
+            catch (ClienteInexistenteException clienteInexistExcep)
             {
-                MessageBox.Show(pacienteInexistExcep.Message);
+                MessageBox.Show(clienteInexistExcep.Message);
             }
             catch (Exception exception)
             {
@@ -44,7 +46,7 @@ namespace Veterinaria.GUI
 
         private void Limpiar()
         {
-            txtIdPaciente.Text = string.Empty;
+            txtIdCliente.Text = string.Empty;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -58,6 +60,5 @@ namespace Veterinaria.GUI
             //No uso limpiar y me limpia igual los text box, por qué?
             //Limpiar();
         }
-
     }
 }

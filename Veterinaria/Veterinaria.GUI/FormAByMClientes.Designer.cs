@@ -1,7 +1,7 @@
 ﻿
 namespace Veterinaria.GUI
 {
-    partial class FormAByM
+    partial class FormAByMClientes
     {
         /// <summary>
         /// Required designer variable.
@@ -207,7 +207,7 @@ namespace Veterinaria.GUI
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click_1);
             // 
-            // FormAByM
+            // FormAByMClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -230,7 +230,7 @@ namespace Veterinaria.GUI
             this.Controls.Add(this.btnRecargar);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.lstClientes);
-            this.Name = "FormAByM";
+            this.Name = "FormAByMClientes";
             this.Text = "FormListaClientes";
             this.Load += new System.EventHandler(this.FormListaClientes_Load);
             this.ResumeLayout(false);

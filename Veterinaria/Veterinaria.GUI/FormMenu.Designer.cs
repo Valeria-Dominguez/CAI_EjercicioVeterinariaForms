@@ -29,48 +29,37 @@ namespace Veterinaria.GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAltaCliente = new System.Windows.Forms.Button();
-            this.btnAltaPaciente = new System.Windows.Forms.Button();
-            this.btnBajaPaciente = new System.Windows.Forms.Button();
+            this.btnAByMClientes = new System.Windows.Forms.Button();
+            this.btnAByMPacientes = new System.Windows.Forms.Button();
             this.btnAgregarVisita = new System.Windows.Forms.Button();
             this.btnListarHistoria = new System.Windows.Forms.Button();
             this.btnListarClientes = new System.Windows.Forms.Button();
             this.lblSucVet = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btnAltaCliente
+            // btnAByMClientes
             // 
-            this.btnAltaCliente.Location = new System.Drawing.Point(31, 57);
-            this.btnAltaCliente.Name = "btnAltaCliente";
-            this.btnAltaCliente.Size = new System.Drawing.Size(116, 23);
-            this.btnAltaCliente.TabIndex = 1;
-            this.btnAltaCliente.Text = "AByM Clientes";
-            this.btnAltaCliente.UseVisualStyleBackColor = true;
-            this.btnAltaCliente.Click += new System.EventHandler(this.btnAByM_Click);
+            this.btnAByMClientes.Location = new System.Drawing.Point(31, 57);
+            this.btnAByMClientes.Name = "btnAByMClientes";
+            this.btnAByMClientes.Size = new System.Drawing.Size(116, 23);
+            this.btnAByMClientes.TabIndex = 1;
+            this.btnAByMClientes.Text = "AByM Clientes";
+            this.btnAByMClientes.UseVisualStyleBackColor = true;
+            this.btnAByMClientes.Click += new System.EventHandler(this.btnAByMClientes_Click);
             // 
-            // btnAltaPaciente
+            // btnAByMPacientes
             // 
-            this.btnAltaPaciente.Location = new System.Drawing.Point(31, 95);
-            this.btnAltaPaciente.Name = "btnAltaPaciente";
-            this.btnAltaPaciente.Size = new System.Drawing.Size(116, 23);
-            this.btnAltaPaciente.TabIndex = 3;
-            this.btnAltaPaciente.Text = "Alta paciente";
-            this.btnAltaPaciente.UseVisualStyleBackColor = true;
-            this.btnAltaPaciente.Click += new System.EventHandler(this.btnAltaPaciente_Click);
-            // 
-            // btnBajaPaciente
-            // 
-            this.btnBajaPaciente.Location = new System.Drawing.Point(31, 135);
-            this.btnBajaPaciente.Name = "btnBajaPaciente";
-            this.btnBajaPaciente.Size = new System.Drawing.Size(116, 23);
-            this.btnBajaPaciente.TabIndex = 5;
-            this.btnBajaPaciente.Text = "Baja paciente";
-            this.btnBajaPaciente.UseVisualStyleBackColor = true;
-            this.btnBajaPaciente.Click += new System.EventHandler(this.btnBajaPaciente_Click);
+            this.btnAByMPacientes.Location = new System.Drawing.Point(31, 95);
+            this.btnAByMPacientes.Name = "btnAByMPacientes";
+            this.btnAByMPacientes.Size = new System.Drawing.Size(116, 23);
+            this.btnAByMPacientes.TabIndex = 3;
+            this.btnAByMPacientes.Text = "AByM Pacientes";
+            this.btnAByMPacientes.UseVisualStyleBackColor = true;
+            this.btnAByMPacientes.Click += new System.EventHandler(this.btnAByMPacientes_Click);
             // 
             // btnAgregarVisita
             // 
-            this.btnAgregarVisita.Location = new System.Drawing.Point(31, 175);
+            this.btnAgregarVisita.Location = new System.Drawing.Point(31, 134);
             this.btnAgregarVisita.Name = "btnAgregarVisita";
             this.btnAgregarVisita.Size = new System.Drawing.Size(116, 23);
             this.btnAgregarVisita.TabIndex = 7;
@@ -79,16 +68,17 @@ namespace Veterinaria.GUI
             // 
             // btnListarHistoria
             // 
-            this.btnListarHistoria.Location = new System.Drawing.Point(31, 216);
+            this.btnListarHistoria.Location = new System.Drawing.Point(31, 174);
             this.btnListarHistoria.Name = "btnListarHistoria";
             this.btnListarHistoria.Size = new System.Drawing.Size(116, 23);
             this.btnListarHistoria.TabIndex = 9;
             this.btnListarHistoria.Text = "Listar historia";
             this.btnListarHistoria.UseVisualStyleBackColor = true;
+            this.btnListarHistoria.Click += new System.EventHandler(this.btnListarHistoria_Click);
             // 
             // btnListarClientes
             // 
-            this.btnListarClientes.Location = new System.Drawing.Point(31, 258);
+            this.btnListarClientes.Location = new System.Drawing.Point(31, 213);
             this.btnListarClientes.Name = "btnListarClientes";
             this.btnListarClientes.Size = new System.Drawing.Size(116, 23);
             this.btnListarClientes.TabIndex = 11;
@@ -115,9 +105,8 @@ namespace Veterinaria.GUI
             this.Controls.Add(this.btnListarClientes);
             this.Controls.Add(this.btnListarHistoria);
             this.Controls.Add(this.btnAgregarVisita);
-            this.Controls.Add(this.btnBajaPaciente);
-            this.Controls.Add(this.btnAltaPaciente);
-            this.Controls.Add(this.btnAltaCliente);
+            this.Controls.Add(this.btnAByMPacientes);
+            this.Controls.Add(this.btnAByMClientes);
             this.Name = "FormMenu";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormMenu_Load);
@@ -128,9 +117,8 @@ namespace Veterinaria.GUI
 
         #endregion
 
-        private System.Windows.Forms.Button btnAltaCliente;
-        private System.Windows.Forms.Button btnAltaPaciente;
-        private System.Windows.Forms.Button btnBajaPaciente;
+        private System.Windows.Forms.Button btnAByMClientes;
+        private System.Windows.Forms.Button btnAByMPacientes;
         private System.Windows.Forms.Button btnAgregarVisita;
         private System.Windows.Forms.Button btnListarHistoria;
         private System.Windows.Forms.Button btnListarClientes;

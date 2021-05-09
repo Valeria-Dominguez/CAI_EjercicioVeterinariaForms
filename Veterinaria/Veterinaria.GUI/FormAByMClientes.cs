@@ -13,11 +13,11 @@ using Veterinaria.Libreria.Exceptions;
 
 namespace Veterinaria.GUI
 {
-    public partial class FormAByM : Form
+    public partial class FormAByMClientes : Form
     {
         private Form _menu;
         private SucVeterinaria _sucVeterinaria;
-        public FormAByM(Form frmMenu, SucVeterinaria sucVeterinaria)
+        public FormAByMClientes(Form frmMenu, SucVeterinaria sucVeterinaria)
         {
             _menu = frmMenu;
             _sucVeterinaria = sucVeterinaria;
@@ -57,7 +57,7 @@ namespace Veterinaria.GUI
             Cliente cliente = null;
             try
             {
-                Validar();
+                ValidarStrings();
                 cliente = new Cliente(txtIdCliente.Text, txtNombre.Text, txtDomicilio.Text, txtTelefono.Text, txtEmail.Text);
                 _sucVeterinaria.GuardarCliente(cliente);
                 MessageBox.Show($"Cliente agregado:\n {cliente.ToString()}");
@@ -79,7 +79,7 @@ namespace Veterinaria.GUI
             Cliente clienteSeleccionado = (Cliente)lstClientes.SelectedValue;
             try
             {
-                Validar();
+                ValidarStrings();
                 if (clienteSeleccionado.Id != txtIdCliente.Text) { throw new Exception("No puede modificarse el ID"); }
                 cliente = new Cliente(txtIdCliente.Text, txtNombre.Text, txtDomicilio.Text, txtTelefono.Text, txtEmail.Text);
                 _sucVeterinaria.ModificarCliente(cliente);
@@ -102,7 +102,7 @@ namespace Veterinaria.GUI
             Cliente clienteSeleccionado = (Cliente)lstClientes.SelectedValue;
             try
             {
-                /*ver
+                /*ver botón para confirmar eliminación
                 if (ConfirmarEliminacion(clienteSeleccionado) == true)
                 {
                 }
@@ -142,10 +142,10 @@ namespace Veterinaria.GUI
             this.btnEliminar.Enabled = true;
             this.btnAgregar.Enabled = true;
             */
-            CargarCliente();
+            CargarClienteSeleccionado();
         }
 
-        private void CargarCliente()
+        private void CargarClienteSeleccionado()
         {
             if (lstClientes.DataSource!=null)
             {
@@ -158,7 +158,7 @@ namespace Veterinaria.GUI
             }
         }
 
-        private void Validar()
+        private void ValidarStrings()
         {
             if (
                 txtIdCliente.Text == string.Empty ||
