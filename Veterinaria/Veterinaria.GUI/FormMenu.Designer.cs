@@ -65,6 +65,7 @@ namespace Veterinaria.GUI
             this.btnAgregarVisita.TabIndex = 7;
             this.btnAgregarVisita.Text = "Agregar visita";
             this.btnAgregarVisita.UseVisualStyleBackColor = true;
+            this.btnAgregarVisita.Click += new System.EventHandler(this.btnAgregarVisita_Click);
             // 
             // btnListarHistoria
             // 

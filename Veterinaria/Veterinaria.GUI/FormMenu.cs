@@ -49,5 +49,12 @@ namespace Veterinaria.GUI
                 MessageBox.Show(frmPedirPaciente.PacienteEncontrado.ListarHistoria());
             }
         }
+
+        private void btnAgregarVisita_Click(object sender, EventArgs e)
+        {
+            FormAgregarVisita frmAgregarVisita = new FormAgregarVisita(this, sucursal1);
+            frmAgregarVisita.Show();
+            this.Hide();
+        }
     }
 }
