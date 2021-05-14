@@ -12,24 +12,20 @@ using Veterinaria.Libreria.Exceptions;
 
 namespace Veterinaria.GUI
 {
-    public partial class FormPedirPaciente : Form
+    public partial class FormListarHistoria : Form
     {
-        private SucVeterinaria _sucVeterinaria;
-        private Paciente _pacienteEncontrado;
+        private SucVeterinaria _sucursalVeterinaria;
 
-        public Paciente PacienteEncontrado { get => _pacienteEncontrado; set => _pacienteEncontrado = value; }
-
-        public FormPedirPaciente(Form form, SucVeterinaria sucVeterinaria)
+        public FormListarHistoria(Form form, SucVeterinaria sucVeterinaria)
         {
-            _sucVeterinaria = sucVeterinaria;
-            _pacienteEncontrado = null;
             this.Owner = form;
+            _sucursalVeterinaria = sucVeterinaria;
             InitializeComponent();
         }
 
         private void PedirPaciente_Load(object sender, EventArgs e)
         {
-
+            Limpiar();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -37,9 +33,10 @@ namespace Veterinaria.GUI
             try
             {
                 if (txtIdPaciente.Text == string.Empty) { throw new Exception("El campo no puede estar vacío"); }
-                Paciente paciente = _sucVeterinaria.BuscarPaciente(txtIdPaciente.Text);
-                _pacienteEncontrado = paciente;
-                txtIdPaciente.Text = string.Empty;
+                MessageBox.Show(_sucursalVeterinaria.ListarHistoria(txtIdPaciente.Text));
+                Limpiar();
+                this.Owner.Show();
+                this.Close();
             }
             catch (PacienteInexistenteException pacienteInexistExcep)
             {
@@ -50,11 +47,9 @@ namespace Veterinaria.GUI
                 MessageBox.Show(exception.Message);
             }
         }
-
-        private void btnVolver_Click(object sender, EventArgs e)
+        private void Limpiar()
         {
-            this.Owner.Show();
-            this.Close();
+            txtIdPaciente.Text = string.Empty;
         }
     }
 }

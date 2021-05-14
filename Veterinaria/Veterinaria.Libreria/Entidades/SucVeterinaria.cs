@@ -14,7 +14,6 @@ namespace Veterinaria.Libreria.Entidades
         string _telefono;
         string _encargado;
         List<Cliente> _clientes;
-        List<Profesional> _profesionales;
 
         public string Nombre { get => _nombre; }
         public string Domicilio { get => _domicilio; }
@@ -27,15 +26,9 @@ namespace Veterinaria.Libreria.Entidades
             this._telefono = telefono;
             this._encargado = encargado;
             this._clientes = new List<Cliente>();
-            this._profesionales = new List<Profesional>();
         }
 
-        public void GuardarCliente(string idCliente, string nombre, string domicilio, string numeroTel, string email)
-        {
-            Cliente clienteAgre = new Cliente(idCliente, nombre, domicilio, numeroTel, email);
-            GuardarCliente(clienteAgre);            
-        }
-
+        //
         public void GuardarCliente(Cliente clienteAgre)
         {
             foreach (Cliente cliente in this._clientes)
@@ -46,128 +39,20 @@ namespace Veterinaria.Libreria.Entidades
                 }
             }
             this._clientes.Add(clienteAgre);
+        }       
+        
+        public void ModificarCliente(Cliente clienteModificado, Cliente clienteAModificar)
+        {
+            clienteAModificar.Nombre = clienteModificado.Nombre;
+            clienteAModificar.Domicilio = clienteModificado.Domicilio;
+            clienteAModificar.NumeroTel = clienteModificado.NumeroTel;
+            clienteAModificar.Email = clienteModificado.Email;
         }
 
-        public void ModificarCliente(Cliente clienteModificado)
+        public string ListarHistoria (string idPaciente)
         {
-            Cliente clienteBuscado = null;
-            foreach (Cliente cliente in this._clientes)
-            {
-                if (cliente.Equals(clienteModificado))
-                {
-                    clienteBuscado = cliente;
-                }
-            }
-            if (clienteBuscado == null) { throw new ClienteInexistenteException(); }
-
-            clienteBuscado.Id = clienteModificado.Id;
-            clienteBuscado.Nombre = clienteModificado.Nombre;
-            clienteBuscado.Domicilio = clienteModificado.Domicilio;
-            clienteBuscado.NumeroTel = clienteModificado.NumeroTel;
-            clienteBuscado.Email = clienteModificado.Email;
-        }
-
-        public void GuardarProfesional(string idProfesional, string nombre, string domicilio, string numeroTel, string email)
-        {
-            Profesional profesional = new Profesional (idProfesional, nombre, domicilio, numeroTel, email);
-            GuardarProfesional(profesional);
-        }
-
-        void GuardarProfesional(Profesional profesional)
-        {
-            this._profesionales.Add(profesional);
-        }
-
-        public string BuscarHistoria (string idPaciente)
-        {
-            string valor = "";
-            foreach (Cliente cliente in this._clientes)
-            {
-                foreach (Paciente mascota in cliente.Mascotas)
-                {
-                    if (mascota.IdPaciente == idPaciente)
-                    {
-                        valor = mascota.ListarHistoria();
-                    }
-                }
-            }
-            if (valor == "")
-            {
-                throw new PacienteInexistenteException();
-            }
-            return valor; 
-        }
-
-        public void GuardarPaciente(string idCliente, string idPaciente, string nombre, string fechaNacimiento, int peso)
-        {
-            Paciente paciente = new Paciente(idPaciente, nombre, fechaNacimiento, peso);
-            GuardarPaciente(idCliente, paciente);
-        }
-
-        public void GuardarPaciente (string idCliente, Paciente paciente)
-        {
-            Cliente clienteBusc = null;
-            foreach (Cliente cliente in this._clientes)
-            {
-                if (cliente.Id == idCliente)
-                {
-                    clienteBusc = cliente;
-                }
-                foreach (Paciente pacient in cliente.Mascotas)
-                {
-                    if (pacient.IdPaciente == paciente.IdPaciente)
-                    {
-                        throw new PacienteExistenteException();
-                    }
-                }
-            }
-            clienteBusc.GuardarPaciente(paciente);
-            if (clienteBusc == null)
-            {
-                throw new ClienteInexistenteException();
-            }
-        }
-
-        public void EliminarPaciente(string idPaciente)
-        {
-            Paciente pacienteBusc = null;
-            Cliente clienteBusc = null;
-
-            foreach (Cliente cliente in this._clientes)
-            {
-                foreach (Paciente mascota in cliente.Mascotas)
-                {
-                    if (mascota.IdPaciente == idPaciente)
-                    {
-                        clienteBusc = cliente;
-                        pacienteBusc = mascota;
-                    }
-                }
-            }
-            if (pacienteBusc==null)
-            {
-                throw new PacienteInexistenteException("No puede eliminarse, el paciente no existe\n");
-            }
-
-            clienteBusc.EliminarPaciente(pacienteBusc);
-        }
-
-        public void EliminarCliente(string idCliente)
-        {
-            Cliente clienteBusc = null;
-
-            foreach (Cliente cliente in this._clientes)
-            {
-                if (cliente.Id == clienteBusc.Id)
-                {
-                    clienteBusc = cliente;
-                }
-            }
-            if (clienteBusc == null)
-            {
-                throw new ClienteInexistenteException("No puede eliminarse, el cliente no existe\n");
-            }
-            EliminarCliente(clienteBusc);
+            Paciente paciente = BuscarPaciente(idPaciente);
+            return paciente.ListarHistoria();
         }
 
         public void EliminarCliente(Cliente cliente)
@@ -194,51 +79,6 @@ namespace Veterinaria.Libreria.Entidades
                 }
             }
             return valor;
-        }
-
-        public string ListarProfesionales()
-        {
-            string valor = "";
-            if (_profesionales.Count == 0)
-            {
-                valor = "No hay profesionales ingresados\n";
-            }
-            else
-            {
-                foreach (Profesional profesional in this._profesionales)
-                {
-                    valor = valor + profesional.ToString();
-                }
-            }
-            return valor;
-        }
-
-        public void GuardarVisita(string idPaciente, string fechaVisita, string motivoConsulta, string diagnostico, string prescripciones, string observaciones, string nombreProfesional)
-        {
-            Visita visita = new Visita(fechaVisita, motivoConsulta, diagnostico, prescripciones, observaciones, nombreProfesional);
-            GuardarVisita(idPaciente, visita);
-        }
-
-        public void GuardarVisita(string idPaciente, Visita visita)
-        {
-            Paciente pacienteBusc = null;
-
-            foreach (Cliente cliente in this._clientes)
-            {
-                foreach (Paciente mascota in cliente.Mascotas)
-                {
-                    if (mascota.IdPaciente == idPaciente)
-                    {
-                        pacienteBusc = mascota;
-                    }
-                }
-            }
-            if (pacienteBusc == null)
-            {
-                throw new PacienteInexistenteException("No puede agregarse visita, el paciente no existe\n");
-            }
-
-            pacienteBusc.GuardarVisita(visita);
         }
 
         public Cliente BuscarCliente(string idCliente)

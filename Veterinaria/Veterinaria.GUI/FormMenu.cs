@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using Veterinaria.Libreria.Entidades;
+using Veterinaria.Libreria.Exceptions;
+
 
 namespace Veterinaria.GUI
 {
@@ -39,15 +41,9 @@ namespace Veterinaria.GUI
 
         private void btnListarHistoria_Click(object sender, EventArgs e)
         {
-            FormPedirPaciente frmPedirPaciente = new FormPedirPaciente(this, sucursal1);
-            frmPedirPaciente.Show();
+            FormListarHistoria frmListarHistoria = new FormListarHistoria(this, sucursal1);
+            frmListarHistoria.Show();
             this.Hide();
-
-            //Por qué no funciona?
-            if (frmPedirPaciente.PacienteEncontrado != null)
-            {
-                MessageBox.Show(frmPedirPaciente.PacienteEncontrado.ListarHistoria());
-            }
         }
 
         private void btnAgregarVisita_Click(object sender, EventArgs e)

@@ -25,6 +25,33 @@ namespace Veterinaria.GUI
             _clienteSeleccionado = cliente;
             InitializeComponent();
         }
+        private void FormAltaPaciente_Load(object sender, EventArgs e)
+        {
+            lbIdCliente.Text = $"Cliente: {_clienteSeleccionado.Nombre}";
+            CargarLista();
+        }
+
+        private void lstPacientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /* Para qué? 
+            this.btnModificar.Enabled = true;
+            this.btnEliminar.Enabled = true;
+            this.btnAgregar.Enabled = true;
+            */
+            CambiarPacienteSeleccionado();
+        }
+
+        private void CambiarPacienteSeleccionado()
+        {
+            if (lstPacientes.DataSource != null)
+            {
+                Paciente pacienteSeleccionado = (Paciente)lstPacientes.SelectedValue;
+                txtIdPaciente.Text = pacienteSeleccionado.IdPaciente;
+                txtNombre.Text = pacienteSeleccionado.Nombre;
+                txtFechaNacim.Text = pacienteSeleccionado.FechaNacimiento;
+                txtPeso.Text = pacienteSeleccionado.Peso.ToString();
+            }
+        }
 
         private void btnAgregarPaciente_Click(object sender, EventArgs e)
         {
@@ -34,7 +61,7 @@ namespace Veterinaria.GUI
                 ValidarStrings();
                 double peso = Validaciones.Validaciones.ValidarDouble(txtPeso.Text);
                 paciente = new Paciente(txtIdPaciente.Text, txtNombre.Text, txtFechaNacim.Text, peso);
-                _sucVeterinaria.GuardarPaciente(_clienteSeleccionado.Id, paciente);
+                _clienteSeleccionado.GuardarPaciente(paciente);
                 MessageBox.Show($"Paciente agregado:\n {paciente.ToString()}");
                 Limpiar();
                 CargarLista();
@@ -53,50 +80,6 @@ namespace Veterinaria.GUI
                 MessageBox.Show(excepcion.Message);
             }
         }
-        
-        private void ValidarStrings()
-        {
-            if(
-                txtIdPaciente.Text==string.Empty || 
-                txtNombre.Text == string.Empty || 
-                txtFechaNacim.Text == string.Empty
-                )
-            {
-                throw new Exception("Ningún campo puede estar vacío");
-            }
-        }
-        private void Limpiar()
-        {
-            txtIdPaciente.Text = string.Empty;
-            txtNombre.Text = string.Empty;
-            txtFechaNacim.Text = string.Empty;
-            txtPeso.Text = string.Empty;
-        }
-
-        private void FormAltaPaciente_Load(object sender, EventArgs e)
-        {
-            //No uso limpiar y me limpia igual los text box, por qué?
-            //Limpiar();
-            lbIdCliente.Text = $"Cliente: {_clienteSeleccionado.Nombre}";
-            CargarLista();
-        }
-
-        private void CargarLista()
-        {
-            LimpiarLista();
-            lstPacientes.DataSource = _clienteSeleccionado.Mascotas;
-        }
-
-        private void btnVolver_Click(object sender, EventArgs e)
-        {
-            this.Owner.Show();
-            this.Hide();
-        }
-
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            Limpiar();
-        }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -104,10 +87,11 @@ namespace Veterinaria.GUI
             Paciente pacienteSeleccionado = (Paciente)lstPacientes.SelectedValue;
             try
             {
-                ValidarStrings();
                 if (pacienteSeleccionado.IdPaciente != txtIdPaciente.Text) { throw new Exception("No puede modificarse el ID"); }
 
+                ValidarStrings();
                 double peso = Validaciones.Validaciones.ValidarDouble(txtPeso.Text);
+
                 paciente = new Paciente(txtIdPaciente.Text, txtNombre.Text, txtFechaNacim.Text, peso);
                 _clienteSeleccionado.ModificarPaciente(paciente);
                 MessageBox.Show($"Paciente modificado:\n {paciente.ToString()}");
@@ -135,7 +119,7 @@ namespace Veterinaria.GUI
                 }
                 */
 
-                _sucVeterinaria.EliminarPaciente(txtIdPaciente.Text);
+                _clienteSeleccionado.EliminarPaciente(pacienteSeleccionado);
                 MessageBox.Show($"Paciente eliminado");
                 Limpiar();
                 CargarLista();
@@ -150,36 +134,49 @@ namespace Veterinaria.GUI
             }
         }
 
+        private void ValidarStrings()
+        {
+            if(
+                txtIdPaciente.Text==string.Empty || 
+                txtNombre.Text == string.Empty || 
+                txtFechaNacim.Text == string.Empty
+                )
+            {
+                throw new Exception("Ningún campo puede estar vacío");
+            }
+        }
+        private void Limpiar()
+        {
+            txtIdPaciente.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            txtFechaNacim.Text = string.Empty;
+            txtPeso.Text = string.Empty;
+        }
+
+        private void CargarLista()
+        {
+            LimpiarLista();
+            lstPacientes.DataSource = _clienteSeleccionado.Mascotas;
+        }
+
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             CargarLista();
         }
 
-        private void lstPacientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            /* Para qué? 
-            this.btnModificar.Enabled = true;
-            this.btnEliminar.Enabled = true;
-            this.btnAgregar.Enabled = true;
-            */
-            CambiarPacienteSeleccionado();
-        }
-
-        private void CambiarPacienteSeleccionado()
-        {
-            if (lstPacientes.DataSource != null)
-            {
-                Paciente pacienteSeleccionado = (Paciente)lstPacientes.SelectedValue;
-                txtIdPaciente.Text = pacienteSeleccionado.IdPaciente;
-                txtNombre.Text = pacienteSeleccionado.Nombre;
-                txtFechaNacim.Text = pacienteSeleccionado.FechaNacimiento;
-                txtPeso.Text = pacienteSeleccionado.Peso.ToString();
-            }
-        }
-
         private void LimpiarLista()
         {
             lstPacientes.DataSource = null;
+        }
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Owner.Show();
+            this.Hide();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
     }
 }

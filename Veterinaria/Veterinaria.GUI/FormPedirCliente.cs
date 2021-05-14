@@ -23,13 +23,23 @@ namespace Veterinaria.GUI
             InitializeComponent();
         }
 
+        private void FormPedirCliente_Load(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
         private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            Continuar();
+        }
+
+        private void Continuar()
         {
             try
             {
                 if (txtIdCliente.Text == string.Empty) { throw new Exception("El campo no puede estar vacío"); }
-                Cliente cliente =_sucVeterinaria.BuscarCliente(txtIdCliente.Text);
-                FormAByMPacientes frmAByMPacientes = new FormAByMPacientes(this,_sucVeterinaria, cliente);
+                Cliente cliente = _sucVeterinaria.BuscarCliente(txtIdCliente.Text);
+                FormAByMPacientes frmAByMPacientes = new FormAByMPacientes(this, _sucVeterinaria, cliente);
                 frmAByMPacientes.Show();
                 this.Hide();
                 Limpiar();
@@ -53,12 +63,6 @@ namespace Veterinaria.GUI
         {
             _menu.Show();
             this.Close();
-        }
-
-        private void FormBajaPaciente_Load(object sender, EventArgs e)
-        {
-            //No uso limpiar y me limpia igual los text box, por qué?
-            //Limpiar();
         }
     }
 }

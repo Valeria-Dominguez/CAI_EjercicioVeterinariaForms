@@ -39,7 +39,7 @@ namespace Veterinaria.Libreria.Entidades
             this._mascotas.Add(paciente);
         }
 
-        internal void EliminarPaciente (Paciente paciente)
+        public void EliminarPaciente (Paciente paciente)
         {
             this._mascotas.Remove(paciente);
         }

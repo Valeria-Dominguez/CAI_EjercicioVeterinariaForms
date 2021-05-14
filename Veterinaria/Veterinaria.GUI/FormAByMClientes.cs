@@ -17,6 +17,7 @@ namespace Veterinaria.GUI
     {
         private Form _menu;
         private SucVeterinaria _sucVeterinaria;
+
         public FormAByMClientes(Form frmMenu, SucVeterinaria sucVeterinaria)
         {
             _menu = frmMenu;
@@ -26,8 +27,6 @@ namespace Veterinaria.GUI
 
         private void FormListaClientes_Load(object sender, EventArgs e)
         {
-            //No uso limpiar y me limpia igual los text box, por qué?
-            //Limpiar();
             CargarLista();
         }
 
@@ -52,6 +51,30 @@ namespace Veterinaria.GUI
         {
             CargarLista();
         }
+
+        private void lstClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /* Para qué? 
+            this.btnModificar.Enabled = true;
+            this.btnEliminar.Enabled = true;
+            this.btnAgregar.Enabled = true;
+            */
+            CargarClienteSeleccionado();
+        }
+
+        private void CargarClienteSeleccionado()
+        {
+            if (lstClientes.DataSource != null)
+            {
+                Cliente clienteSeleccionado = (Cliente)lstClientes.SelectedValue;
+                txtIdCliente.Text = clienteSeleccionado.Id;
+                txtNombre.Text = clienteSeleccionado.Nombre;
+                txtDomicilio.Text = clienteSeleccionado.Domicilio;
+                txtTelefono.Text = clienteSeleccionado.NumeroTel;
+                txtEmail.Text = clienteSeleccionado.Email;
+            }
+        }
+
         private void btnAgregarCliente_Click(object sender, EventArgs e)
         {
             Cliente cliente = null;
@@ -75,15 +98,16 @@ namespace Veterinaria.GUI
         }
         private void btnModificarCliente_Click(object sender, EventArgs e)
         {
-            Cliente cliente = null;
+            Cliente clienteModificado = null;
             Cliente clienteSeleccionado = (Cliente)lstClientes.SelectedValue;
             try
             {
-                ValidarStrings();
                 if (clienteSeleccionado.Id != txtIdCliente.Text) { throw new Exception("No puede modificarse el ID"); }
-                cliente = new Cliente(txtIdCliente.Text, txtNombre.Text, txtDomicilio.Text, txtTelefono.Text, txtEmail.Text);
-                _sucVeterinaria.ModificarCliente(cliente);
-                MessageBox.Show($"Cliente modificado:\n {cliente.ToString()}");
+
+                ValidarStrings();
+                clienteModificado = new Cliente(txtIdCliente.Text, txtNombre.Text, txtDomicilio.Text, txtTelefono.Text, txtEmail.Text);
+                _sucVeterinaria.ModificarCliente(clienteModificado, clienteSeleccionado);
+                MessageBox.Show($"Cliente modificado:\n {clienteModificado.ToString()}");
                 Limpiar();
                 CargarLista();
             }
@@ -127,36 +151,6 @@ namespace Veterinaria.GUI
             }
         }
 
-        private bool ConfirmarEliminacion(Cliente cliente)
-        {
-            FormConfirmacion frmConfirmacion = new FormConfirmacion(this, $"¿Eliminar al cliente {cliente.ToString()}?");
-            frmConfirmacion.Show();
-            this.Hide();
-            return frmConfirmacion.Confirmacion;
-        }
-
-        private void lstClientes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            /* Para qué? 
-            this.btnModificar.Enabled = true;
-            this.btnEliminar.Enabled = true;
-            this.btnAgregar.Enabled = true;
-            */
-            CargarClienteSeleccionado();
-        }
-
-        private void CargarClienteSeleccionado()
-        {
-            if (lstClientes.DataSource!=null)
-            {
-                Cliente clienteSeleccionado = (Cliente)lstClientes.SelectedValue;
-                txtIdCliente.Text = clienteSeleccionado.Id;
-                txtNombre.Text = clienteSeleccionado.Nombre;
-                txtDomicilio.Text = clienteSeleccionado.Domicilio;
-                txtTelefono.Text = clienteSeleccionado.NumeroTel;
-                txtEmail.Text = clienteSeleccionado.Email;
-            }
-        }
 
         private void ValidarStrings()
         {
@@ -185,5 +179,16 @@ namespace Veterinaria.GUI
         {
             Limpiar();
         }
+
+
+        //ver
+        private bool ConfirmarEliminacion(Cliente cliente)
+        {
+            FormConfirmacion frmConfirmacion = new FormConfirmacion(this, $"¿Eliminar al cliente {cliente.ToString()}?");
+            frmConfirmacion.Show();
+            this.Hide();
+            return frmConfirmacion.Confirmacion;
+        }
+
     }
 }

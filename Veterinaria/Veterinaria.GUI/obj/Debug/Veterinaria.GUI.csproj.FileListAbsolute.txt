@@ -20,8 +20,6 @@ C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinaria
 C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.GUI\bin\Debug\Veterinaria.Libreria.dll
 C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.GUI\bin\Debug\Veterinaria.Libreria.pdb
 C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.GUI\obj\Debug\Veterinaria.GUI.csprojAssemblyReference.cache
-C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.GUI\obj\Debug\Veterinaria.GUI.FormAltaProfesional.resources
-C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.GUI\obj\Debug\Veterinaria.GUI.FormAltaVisita.resources
 C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.GUI\obj\Debug\Veterinaria.GUI.Properties.Resources.resources
 C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.GUI\obj\Debug\Veterinaria.GUI.csproj.GenerateResource.cache
 C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.GUI\obj\Debug\Veterinaria.GUI.csproj.CoreCompileInputs.cache
@@ -33,5 +31,5 @@ C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinaria
 C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.GUI\obj\Debug\Veterinaria.GUI.FormAByMClientes.resources
 C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.GUI\obj\Debug\Veterinaria.GUI.FormPedirCliente.resources
 C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.GUI\obj\Debug\Veterinaria.GUI.FormAByMPacientes.resources
-C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.GUI\obj\Debug\Veterinaria.GUI.FormPedirPaciente.resources
 C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.GUI\obj\Debug\Veterinaria.GUI.FormAgregarVisita.resources
+C:\Users\Valeria\Downloads\CAI\Ejercicios\Segunda parte\CAI_EjercicioVeterinariaForms\Veterinaria\Veterinaria.GUI\obj\Debug\Veterinaria.GUI.FormListarHistoria.resources

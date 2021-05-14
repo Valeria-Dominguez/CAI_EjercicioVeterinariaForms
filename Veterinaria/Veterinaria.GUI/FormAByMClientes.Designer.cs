@@ -63,7 +63,7 @@ namespace Veterinaria.GUI
             this.btnVolver.Location = new System.Drawing.Point(12, 354);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(75, 23);
-            this.btnVolver.TabIndex = 18;
+            this.btnVolver.TabIndex = 17;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
@@ -73,7 +73,7 @@ namespace Veterinaria.GUI
             this.btnRecargar.Location = new System.Drawing.Point(329, 269);
             this.btnRecargar.Name = "btnRecargar";
             this.btnRecargar.Size = new System.Drawing.Size(75, 23);
-            this.btnRecargar.TabIndex = 17;
+            this.btnRecargar.TabIndex = 18;
             this.btnRecargar.Text = "Actualizar lista";
             this.btnRecargar.UseVisualStyleBackColor = true;
             this.btnRecargar.Click += new System.EventHandler(this.btnRecargar_Click);

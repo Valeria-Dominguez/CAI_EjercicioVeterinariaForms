@@ -44,7 +44,6 @@
     <Compile Include="Entidades\Personas\Cliente.cs" />
     <Compile Include="Entidades\Paciente\Paciente.cs" />
     <Compile Include="Entidades\Personas\Persona.cs" />
-    <Compile Include="Entidades\Personas\Profesional.cs" />
     <Compile Include="Entidades\SucVeterinaria.cs" />
     <Compile Include="Entidades\Paciente\Visita.cs" />
     <Compile Include="Validaciones\Validaciones.cs" />

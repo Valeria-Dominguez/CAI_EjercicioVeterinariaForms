@@ -16,6 +16,7 @@ namespace Veterinaria.GUI
     {
         private SucVeterinaria _sucVeterinaria;
         private Paciente _pacienteVisita;
+
         public FormAgregarVisita(Form form, SucVeterinaria sucVeterinaria)
         {
             _sucVeterinaria = sucVeterinaria;
@@ -26,15 +27,27 @@ namespace Veterinaria.GUI
 
         private void AgregarVisita_Load(object sender, EventArgs e)
         {
-            FormPedirPaciente frmPedirPaciente = new FormPedirPaciente(this, _sucVeterinaria);
-            this.Hide();
-            frmPedirPaciente.Show();
-            _pacienteVisita = frmPedirPaciente.PacienteEncontrado;
-            if(_pacienteVisita!=null)
-            {
-                lblNombrePaciente.Text = _pacienteVisita.Nombre;
-            }
+            _pacienteVisita = null;
+            lblNombrePaciente.Text = "Nombre paciente";
         }
+
+        private void btnBuscarPaciente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(txtIdPaciente.Text==string.Empty){throw new Exception("Ningún campo puede estar vacío");}
+                _pacienteVisita = _sucVeterinaria.BuscarPaciente(txtIdPaciente.Text);
+                if (_pacienteVisita != null) { lblNombrePaciente.Text = _pacienteVisita.Nombre; }
+            }
+            catch (PacienteInexistenteException pacienteInexsistExcep)
+            {
+                MessageBox.Show(pacienteInexsistExcep.Message);
+            }
+            catch (Exception excep)
+            {
+                MessageBox.Show(excep.Message);
+            }
+        }    
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
@@ -48,10 +61,15 @@ namespace Veterinaria.GUI
             {
                 ValidarStrings();
                 Visita visita = new Visita(txtFecha.Text, txtMotivo.Text, txtDiagnostico.Text, txtPrescripciones.Text, txtObservaciones.Text, txtProfesional.Text);
-                _sucVeterinaria.GuardarVisita(_pacienteVisita.IdPaciente, visita);
-                MessageBox.Show($"Visita agregada");
-                Limpiar();
+                
+                if (_pacienteVisita == null) { throw new Exception("Debe seleccionar un paciente"); }
 
+                else
+                {
+                    _pacienteVisita.GuardarVisita(visita);
+                }
+                MessageBox.Show($"Visita agregada en el paciente {_pacienteVisita.Nombre}");
+                Limpiar();
             }
             catch (PacienteInexistenteException pacienteInexsistExcep)
             {
@@ -70,11 +88,12 @@ namespace Veterinaria.GUI
 
         private void Limpiar()
         {
+            txtIdPaciente.Text = string.Empty;
             txtFecha.Text = string.Empty;
             txtMotivo.Text = string.Empty;
             txtDiagnostico.Text = string.Empty;
             txtPrescripciones.Text = string.Empty;
-            txtFecha.Text = string.Empty;
+            txtObservaciones.Text = string.Empty;
             txtProfesional.Text = string.Empty;
         }
 
@@ -82,16 +101,18 @@ namespace Veterinaria.GUI
         {
             if
               (
+               txtIdPaciente.Text==string.Empty ||
                txtFecha.Text==string.Empty || 
                txtMotivo.Text==string.Empty || 
                txtDiagnostico.Text==string.Empty || 
                txtPrescripciones.Text==string.Empty || 
-               txtFecha.Text==string.Empty || 
+               txtObservaciones.Text==string.Empty ||
                txtProfesional.Text==string.Empty
                )
             {
                 throw new Exception("Ningún campo puede estar vacío");
             }
         }
+
     }
 }

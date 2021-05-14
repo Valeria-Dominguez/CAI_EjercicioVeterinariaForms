@@ -82,7 +82,7 @@ namespace Veterinaria.GUI
             this.Controls.Add(this.label1);
             this.Name = "FormPedirCliente";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.FormBajaPaciente_Load);
+            this.Load += new System.EventHandler(this.FormPedirCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

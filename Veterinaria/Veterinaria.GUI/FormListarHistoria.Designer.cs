@@ -1,7 +1,7 @@
 ﻿
 namespace Veterinaria.GUI
 {
-    partial class FormPedirPaciente
+    partial class FormListarHistoria
     {
         /// <summary>
         /// Required designer variable.
@@ -29,21 +29,10 @@ namespace Veterinaria.GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnVolver = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.txtIdPaciente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // btnVolver
-            // 
-            this.btnVolver.Location = new System.Drawing.Point(21, 110);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(75, 23);
-            this.btnVolver.TabIndex = 7;
-            this.btnVolver.Text = "Volver";
-            this.btnVolver.UseVisualStyleBackColor = true;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnAceptar
             // 
@@ -76,7 +65,6 @@ namespace Veterinaria.GUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(290, 156);
-            this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtIdPaciente);
             this.Controls.Add(this.label1);
@@ -89,8 +77,6 @@ namespace Veterinaria.GUI
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.TextBox txtIdPaciente;
         private System.Windows.Forms.Label label1;

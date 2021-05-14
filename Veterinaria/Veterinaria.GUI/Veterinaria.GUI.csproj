@@ -52,11 +52,11 @@
     <Compile Include="FormAgregarVisita.Designer.cs">
       <DependentUpon>FormAgregarVisita.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPedirPaciente.cs">
+    <Compile Include="FormListarHistoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPedirPaciente.Designer.cs">
-      <DependentUpon>FormPedirPaciente.cs</DependentUpon>
+    <Compile Include="FormListarHistoria.Designer.cs">
+      <DependentUpon>FormListarHistoria.cs</DependentUpon>
     </Compile>
     <Compile Include="FormConfirmacion.cs">
       <SubType>Form</SubType>
@@ -82,23 +82,11 @@
     <Compile Include="FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAltaProfesional.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAltaProfesional.Designer.cs">
-      <DependentUpon>FormAltaProfesional.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormAByMPacientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormAByMPacientes.Designer.cs">
       <DependentUpon>FormAByMPacientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormAltaVisita.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormAltaVisita.Designer.cs">
-      <DependentUpon>FormAltaVisita.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,12 +99,6 @@
     <EmbeddedResource Include="FormAByMPacientes.resx">
       <DependentUpon>FormAByMPacientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAltaProfesional.resx">
-      <DependentUpon>FormAltaProfesional.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormAltaVisita.resx">
-      <DependentUpon>FormAltaVisita.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormPedirCliente.resx">
       <DependentUpon>FormPedirCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,8 +108,8 @@
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPedirPaciente.resx">
-      <DependentUpon>FormPedirPaciente.cs</DependentUpon>
+    <EmbeddedResource Include="FormListarHistoria.resx">
+      <DependentUpon>FormListarHistoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
