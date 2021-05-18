@@ -33,11 +33,6 @@ namespace Veterinaria.GUI
 
         private void lstPacientes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /* Para qué? 
-            this.btnModificar.Enabled = true;
-            this.btnEliminar.Enabled = true;
-            this.btnAgregar.Enabled = true;
-            */
             CambiarPacienteSeleccionado();
         }
 
@@ -55,9 +50,9 @@ namespace Veterinaria.GUI
 
         private void btnAgregarPaciente_Click(object sender, EventArgs e)
         {
-            Paciente paciente = null;
             try
             {
+                Paciente paciente = null;
                 ValidarStrings();
                 double peso = Validaciones.Validaciones.ValidarDouble(txtPeso.Text);
                 paciente = new Paciente(txtIdPaciente.Text, txtNombre.Text, txtFechaNacim.Text, peso);
@@ -83,17 +78,18 @@ namespace Veterinaria.GUI
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Paciente paciente = null;
-            Paciente pacienteSeleccionado = (Paciente)lstPacientes.SelectedValue;
             try
             {
+                Paciente paciente = null;
+                Paciente pacienteSeleccionado = (Paciente)lstPacientes.SelectedValue;
+                if (pacienteSeleccionado == null) { throw new Exception("Debe seleccionar un paciente"); }
                 if (pacienteSeleccionado.IdPaciente != txtIdPaciente.Text) { throw new Exception("No puede modificarse el ID"); }
 
                 ValidarStrings();
                 double peso = Validaciones.Validaciones.ValidarDouble(txtPeso.Text);
 
                 paciente = new Paciente(txtIdPaciente.Text, txtNombre.Text, txtFechaNacim.Text, peso);
-                _clienteSeleccionado.ModificarPaciente(paciente);
+                _clienteSeleccionado.ModificarPaciente(paciente, pacienteSeleccionado);
                 MessageBox.Show($"Paciente modificado:\n {paciente.ToString()}");
                 Limpiar();
                 CargarLista();
@@ -110,9 +106,10 @@ namespace Veterinaria.GUI
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            Paciente pacienteSeleccionado = (Paciente)lstPacientes.SelectedValue;
             try
             {
+                Paciente pacienteSeleccionado = (Paciente)lstPacientes.SelectedValue;
+                if (pacienteSeleccionado == null) { throw new Exception("Debe seleccionar un paciente"); }
                 /*ver botón para confirmar eliminación
                 if (ConfirmarEliminacion(clienteSeleccionado) == true)
                 {

@@ -73,23 +73,12 @@ namespace Veterinaria.Libreria.Entidades
             return valor;
         }
 
-        public void ModificarPaciente(Paciente pacienteModificado)
+        public void ModificarPaciente(Paciente pacienteModificado, Paciente pacienteAModificar)
         {
-            Paciente pacienteBuscado = null;
-            foreach (Paciente paciente in this._mascotas)
-            {
-                if (paciente.IdPaciente==pacienteModificado.IdPaciente)
-                {
-                    pacienteBuscado = paciente;
-                }
-            }
-            if (pacienteBuscado == null) { throw new PacienteInexistenteException(); }
-
-
-            pacienteBuscado.IdPaciente = pacienteModificado.IdPaciente;
-            pacienteBuscado.Nombre = pacienteModificado.Nombre;
-            pacienteBuscado.FechaNacimiento = pacienteModificado.FechaNacimiento;
-            pacienteBuscado.Peso = pacienteModificado.Peso;
+            pacienteAModificar.IdPaciente = pacienteModificado.IdPaciente;
+            pacienteAModificar.Nombre = pacienteModificado.Nombre;
+            pacienteAModificar.FechaNacimiento = pacienteModificado.FechaNacimiento;
+            pacienteAModificar.Peso = pacienteModificado.Peso;
         }
     }
 }

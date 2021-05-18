@@ -54,11 +54,6 @@ namespace Veterinaria.GUI
 
         private void lstClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /* Para qué? 
-            this.btnModificar.Enabled = true;
-            this.btnEliminar.Enabled = true;
-            this.btnAgregar.Enabled = true;
-            */
             CargarClienteSeleccionado();
         }
 
@@ -77,9 +72,9 @@ namespace Veterinaria.GUI
 
         private void btnAgregarCliente_Click(object sender, EventArgs e)
         {
-            Cliente cliente = null;
             try
             {
+                Cliente cliente = null;
                 ValidarStrings();
                 cliente = new Cliente(txtIdCliente.Text, txtNombre.Text, txtDomicilio.Text, txtTelefono.Text, txtEmail.Text);
                 _sucVeterinaria.GuardarCliente(cliente);
@@ -98,10 +93,11 @@ namespace Veterinaria.GUI
         }
         private void btnModificarCliente_Click(object sender, EventArgs e)
         {
-            Cliente clienteModificado = null;
-            Cliente clienteSeleccionado = (Cliente)lstClientes.SelectedValue;
             try
             {
+                Cliente clienteModificado = null;
+                Cliente clienteSeleccionado = (Cliente)lstClientes.SelectedValue;
+                if (clienteSeleccionado == null) { throw new Exception("Debe seleccionar un cliente"); }
                 if (clienteSeleccionado.Id != txtIdCliente.Text) { throw new Exception("No puede modificarse el ID"); }
 
                 ValidarStrings();
@@ -123,9 +119,10 @@ namespace Veterinaria.GUI
 
         private void btnEliminarCliente_Click(object sender, EventArgs e)
         {
-            Cliente clienteSeleccionado = (Cliente)lstClientes.SelectedValue;
             try
             {
+                Cliente clienteSeleccionado = (Cliente)lstClientes.SelectedValue;
+                if (clienteSeleccionado == null) { throw new Exception("Debe seleccionar un cliente"); }
                 /*ver botón para confirmar eliminación
                 if (ConfirmarEliminacion(clienteSeleccionado) == true)
                 {
